@@ -4,13 +4,25 @@ import { increment, decrement } from "../actions/index";
 
 const Counter = ({ counter, increment, decrement }) => {
   return (
-    <div>
-      <header className="App-header">
+    <>
+      <div className="App-header m-1 rounded border border-warning">
         <p>Current Count is {counter}.</p>
-        <button onClick={increment}>Increase</button>
-        <button onClick={decrement}>Decrease</button>
-      </header>
-    </div>
+        <button
+          type="button"
+          className="btn btn-warning m-2"
+          onClick={decrement}
+        >
+          Decrease
+        </button>
+        <button
+          type="button p10"
+          className="btn btn-info m-2"
+          onClick={increment}
+        >
+          Increase
+        </button>
+      </div>
+    </>
   );
 };
 
