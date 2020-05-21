@@ -1,4 +1,4 @@
-import { INCREMENT_COUNTER, DECREMENT_COUNTER } from "./types";
+import { INCREMENT_COUNTER, DECREMENT_COUNTER, ADD_MESSAGE } from "./types";
 
 export const increment = () => {
   return {
@@ -12,8 +12,9 @@ export const decrement = () => {
   };
 };
 
-export const changeField = () => {
+export const submitMessage = message => {
   return {
-    // type: CHANGE_FIELD
+    type: ADD_MESSAGE,
+    payload: message
   };
 };

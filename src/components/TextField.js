@@ -1,8 +1,18 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { submitMessage } from "../actions/index";
 
-const TextField = () => {
+const TextField = ({ messages, submitMessage }) => {
   const [message, setMessage] = useState("");
   const [name, setName] = useState("");
+
+  const submitAMessage = () => {
+    if (message === "" || name === "") {
+      console.log("Bad Request");
+    } else {
+      submitMessage({ message, name });
+    }
+  };
 
   return (
     <div className="App-header m-1 rounded border border-warning">
@@ -22,8 +32,25 @@ const TextField = () => {
         ></input>
       </div>
       Written By: {name}
+      <div>
+        <button className="btn btn-warning m-3" onClick={submitAMessage}>
+          Submit
+        </button>
+      </div>
+      {messages.length !== 0
+        ? messages.map((m, i) => (
+            <div className="text-info" key={i}>
+              {m.name.charAt(0).toUpperCase() + m.name.slice(1)} wrote:{" "}
+              {m.message}
+            </div>
+          ))
+        : null}
     </div>
   );
 };
 
-export default TextField;
+const mapStateToProps = state => ({
+  messages: state.messages
+});
+
+export default connect(mapStateToProps, { submitMessage })(TextField);
