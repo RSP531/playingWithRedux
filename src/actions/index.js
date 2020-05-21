@@ -11,3 +11,9 @@ export const decrement = () => {
     type: DECREMENT_COUNTER
   };
 };
+
+export const changeField = () => {
+  return {
+    // type: CHANGE_FIELD
+  };
+};
