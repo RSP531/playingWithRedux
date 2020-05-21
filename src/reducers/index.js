@@ -9,7 +9,7 @@ export default (state, action) => {
     }
     case DECREMENT_COUNTER: {
       return {
-        ...state
+        counter: state.counter - 1
       };
     }
     default:
