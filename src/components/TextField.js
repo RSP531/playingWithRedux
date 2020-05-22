@@ -37,14 +37,16 @@ const TextField = ({ messages, submitMessage }) => {
           Submit
         </button>
       </div>
-      {messages.length !== 0
-        ? messages.map((m, i) => (
-            <div className="text-info" key={i}>
-              {m.name.charAt(0).toUpperCase() + m.name.slice(1)} wrote:{" "}
-              {m.message}
-            </div>
-          ))
-        : null}
+      {messages.length !== 0 ? (
+        messages.map((m, i) => (
+          <div className="text-info" key={i}>
+            {m.name.charAt(0).toUpperCase() + m.name.slice(1)} wrote:{" "}
+            {m.message}
+          </div>
+        ))
+      ) : (
+        <div className="text-info">No Current Messages</div>
+      )}
     </div>
   );
 };
