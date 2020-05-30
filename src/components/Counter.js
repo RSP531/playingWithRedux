@@ -6,6 +6,7 @@ const Counter = ({ counter, increment, decrement }) => {
   return (
     <>
       <div className="App-header m-1 rounded border border-warning">
+        <p>App Counter</p>
         <p>Current Count is {counter}.</p>
         <button
           type="button"
